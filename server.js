@@ -6,6 +6,7 @@ var exphbs = require("express-handlebars");
 // Require request and cheerio. This makes the scraping possible
 var request = require("request");
 var cheerio = require("cheerio");
+var bodyParser = require("body-parser");
 
 // Setting up Mongoose
 var mongoose = require('mongoose');
