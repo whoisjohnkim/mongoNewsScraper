@@ -19,6 +19,7 @@ module.exports = function (app) {
                   .text();
                 result.link = "https://www.yahoo.com" + $(element)
                   .attr("href");
+                result.id = $(element).reactid;
 
                   console.log("results: " + JSON.stringify(result));
                 // Create a new Article using the `result` object built from scraping
@@ -36,4 +37,36 @@ module.exports = function (app) {
             res.redirect("/");
         })
     });
+
+    app.post("/save/:id", function(req, res) {
+        db.Note.create(req.body)
+        .then(function(dbNote){
+        return db.Article.findOneAndUpdate(
+            {_id: req.params.id},
+            { saved: true },
+            );
+        })
+        .then(function(dbArticle){
+        res.json(dbArticle);
+        })
+        .catch(function(err) {
+        res.json(err);
+        })
+    })
+
+    app.post("/remove/:id", function(req, res) {
+        db.Note.create(req.body)
+        .then(function(dbNote){
+        return db.Article.findOneAndUpdate(
+            {id: req.params.id},
+            { saved: true },
+            );
+        })
+        .then(function(dbArticle){
+        res.json(dbArticle);
+        })
+        .catch(function(err) {
+        res.json(err);
+        })
+    })
 };

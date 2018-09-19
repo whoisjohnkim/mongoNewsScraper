@@ -8,8 +8,8 @@
     {{#each article}}
     <div>
         <h3>{{this.headline}}</h3>
-        <button id="remove" + {{this.id}}>Remove Article</button>
-        <button id="comment" + {{this.id}}>Comment</button>
+        <button class="removeButton" data-id="{{this.id}}">Remove Article</button>
+        <button class="commentButton" data-id="{{this.id}}">Comment</button>
     </div>
     {{/each}}
 </div>
