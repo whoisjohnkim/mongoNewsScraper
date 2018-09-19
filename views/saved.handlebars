@@ -1,1 +1,15 @@
-<h1>Testing Saved Paged Now</h1>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Mongoose News Scraper!</h1>
+        <p class="lead">This app will scrape news articles and display them below!</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="/" role="button" id="allButton">All Articles</a>
+    </div>
+    {{#each article}}
+    <div>
+        <h3>{{this.headline}}</h3>
+        <button id="remove" + {{this.id}}>Remove Article</button>
+        <button id="comment" + {{this.id}}>Comment</button>
+    </div>
+    {{/each}}
+</div>

@@ -17,8 +17,8 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles";
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
-var db = requires('./models');
-db.on('error', console.error.bind(console, 'connection error:'));
+var db = require('./models');
+// mongoose.on('error', console.error.bind(console, 'connection error:'));
 
 
 
@@ -43,16 +43,16 @@ app.engine(
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-db.once('open', function() {
+
     // we're connected to the database
     // Starting the server
-    app.listen(PORT, function() {
-        console.log(
-        "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-        PORT,
-        PORT
-        );
-    });
+app.listen(PORT, function() {
+    console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+    );
+
 });
 
 module.exports = app;
