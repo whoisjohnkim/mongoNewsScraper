@@ -17,7 +17,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articles";
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
-var db = mongoose.connection;
+var db = requires('./models');
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
