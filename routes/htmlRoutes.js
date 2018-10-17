@@ -33,7 +33,15 @@ module.exports = function (app) {
 
     app.get("/comment/:id", function(req, res) {
         db.Article.find({id: req.params.id}, function(err, data) {
-
+            if(err){
+                console.log(err);
+                res.status(500).send(err);
+            }else{
+                res.render("comment", {
+                    title: "Article Comments",
+                    article: data
+                })
+            }
         })
     })
 };

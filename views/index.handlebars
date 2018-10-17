@@ -1,18 +1,26 @@
 
+<div class=" jumbo jumbotron">
+    <h1 class="display-4">Mongoose News Scraper!</h1>
+    <p class="lead">This app will scrape news articles and display them below!</p>
+    <hr class="my-4">
+    <a class="btn btn-dark btn-lg" href="/saved" role="button">Saved Articles</a>
+    <a class="btn btn-dark btn-lg" role="button" id="scrapeButton">Scrape Articles</a>
+</div>
+
 <div class="container">
-    <div class="jumbotron">
-        <h1 class="display-4">Mongoose News Scraper!</h1>
-        <p class="lead">This app will scrape news articles and display them below!</p>
-        <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="/saved" role="button">Saved Articles</a>
-        <a class="btn btn-primary btn-lg" role="button" id="scrapeButton">Scrape Articles</a>
+
+    <div class="row articles">
+        {{#each article}}
+            <div class="col-sm-12 articleDiv">
+                <h3 class="title">{{this.title}}</h3>
+                <button type="button" class="btn btn-secondary">
+                    <a class="articleLink" href="{{this.link}}">See Article Here</a>
+                </button>
+                <button type="button" class="saveButton btn btn-secondary" data-id="{{this._id}}">Save Article</button>
+                {{!-- <button class="commentButton" data-id="{{this._id}}">Comment</button> --}}
+                <hr class="hr">
+            </div>
+        {{/each}}
     </div>
-    {{#each article}}
-    <div>
-        <h3>{{this.title}}</h3>
-        <a href="{{this.link}}">See Article Here</a>
-        <button class="saveButton" data-id="{{this._id}}">Save Article</button>
-        <button class="commentButton" data-id="{{this._id}}">Comment</button>
-    </div>
-    {{/each}}
+
 </div>

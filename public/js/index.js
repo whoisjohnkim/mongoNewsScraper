@@ -18,16 +18,16 @@ $(document).on("click", ".saveButton", function(event){
     })
 })
 
-$(document).on("click", ".commentButton", function(event) {
-    event.preventDefault();
-    var thisId = $(this).attr("data-id");
-    $.ajax({
-        method: "POST",
-        url: "/comment/" + this.id
-    }).then(function(data){
-        console.log("Commented on this Article");
-    })
-})
+// $(document).on("click", ".commentButton", function(event) {
+//     event.preventDefault();
+//     var thisId = $(this).attr("data-id");
+//     $.ajax({
+//         method: "POST",
+//         url: "/comment/" + this.id
+//     }).then(function(data){
+//         console.log("Commented on this Article");
+//     })
+// })
 
 $(document).on("click", ".removeButton", function(event) {
     event.preventDefault();
